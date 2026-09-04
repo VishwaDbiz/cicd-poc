@@ -40,7 +40,7 @@
 						<javaVersion>17</javaVersion>
 						<releaseChannel>LTS</releaseChannel>
 						<server>anypoint-exchange-v3</server>
-						<applicationName>${project.name}-${mule.env}</applicationName>
+						<applicationName>${project.name}</applicationName>
 						<replicas>${replica}</replicas>
 						<connectedAppClientId>${caclientid}</connectedAppClientId>
 						<connectedAppClientSecret>${caclientsecret}</connectedAppClientSecret>
