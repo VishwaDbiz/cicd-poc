@@ -36,7 +36,7 @@
 						<businessGroupId>${project.groupId}</businessGroupId>
 						<environment>Sandbox</environment>
 						<target>${targetname}</target>
-						<muleVersion>4.9.18</muleVersion>
+						<muleVersion>4.10.0</muleVersion>
 						<javaVersion>17</javaVersion>
 						<releaseChannel>LTS</releaseChannel>
 						<server>anypoint-exchange-v3</server>
