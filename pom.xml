@@ -15,7 +15,6 @@
 
 		<app.runtime>4.10.0</app.runtime>
 		<mule.maven.plugin.version>4.5.3</mule.maven.plugin.version>
-		
 	</properties>
 
 	<build>
@@ -47,47 +46,37 @@
 						<connectedAppClientSecret>${caclientsecret}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<vCores>${core}</vCores>
-						<!-- <integrations>
-							<services>
-								<objectStoreV2>
-									<enabled>true</enabled>
-								</objectStoreV2>
-							</services>
-						</integrations> -->
 						<properties>
 							<mule.env>${mule.env}</mule.env>
 						</properties>
-						<!-- <secureProperties>
-							<encryptionKey>${env.GLOBAL_ENCRYPTION_KEY}</encryptionKey>
-						</secureProperties> -->
 						<deploymentSettings>
-            				<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
-        				</deploymentSettings>
+							<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
+						</deploymentSettings>
 					</cloudhub2Deployment>
 					<classifier>mule-application</classifier>
 				</configuration>
 			</plugin>
 			<plugin>
-            <groupId>org.mule.tools.maven</groupId>
-            <artifactId>exchange-mule-maven-plugin</artifactId>
-            <version>0.1.7</version>
-            <executions>
-                <execution>
-                    <id>validate</id>
-                    <phase>validate</phase>
-                    <goals>
-                        <goal>exchange-pre-deploy</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>deploy</id>
-                    <phase>deploy</phase>
-                    <goals>
-                        <goal>exchange-deploy</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>exchange-mule-maven-plugin</artifactId>
+				<version>0.1.7</version>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>exchange-pre-deploy</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>exchange-deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -105,26 +94,34 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
+
 	<repositories>
 		<repository>
-			<id>anypoint-exchange-v2</id>
-			<name>Anypoint Exchange</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v2/maven</url>
+			<id>anypoint-exchange-v3</id>
+			<name>Anypoint Exchange V3</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
 			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 		<repository>
 			<id>mulesoft-releases</id>
 			<name>MuleSoft Releases Repository</name>
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>anypoint-exchange-v3</id>
-			<name>Anypoint Exchange V3</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>anypoint-exchange-v3</id>
@@ -147,6 +144,7 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
 	<distributionManagement>
 		<repository>
 			<id>anypoint-exchange-v3</id>
